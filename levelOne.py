@@ -30,7 +30,7 @@ def options():
     if userSelect in levelOne:
         endPoint = levelOne[userSelect]
         data = getModule.getter(endPoint).json()
-        print(data)
+        print(*data, sep = "\n\n")
         return levelOne[userSelect]
     else:
         print ("***Please enter the number of selection***")
