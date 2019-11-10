@@ -1,7 +1,7 @@
 import json
 import getModule
 
-levelOne = {
+primaryMenu = {
     "1": "Capsules",
     "2": "Cores",
     "3": "Dragons",
@@ -17,21 +17,19 @@ levelOne = {
     "q" : "quit"
 }
 
-def options():
+def categories():
 
-    for key, value in levelOne.items() :
+    for key, value in primaryMenu.items() :
         print (key,":", value)
 
-    userSelect = input("What endpoint would you like? \n")
+    userSelect = input("\n What category would you like? \n")
 
     if userSelect == "q":
         return
-
-    if userSelect in levelOne:
-        endPoint = levelOne[userSelect]
-        data = getModule.getter(endPoint).json()
-        print(*data, sep = "\n\n")
-        return levelOne[userSelect]
+    elif primaryMenu[userSelect] == "Landing Pads":
+        primaryMenu[userSelect] = "Landpads"
+    elif userSelect in primaryMenu:
+        return primaryMenu[userSelect]
     else:
         print ("***Please enter the number of selection***")
-        options()
+        categories()
